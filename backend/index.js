@@ -3,6 +3,8 @@ const app = express();
 
 //importing routers
 const userRouter = require('./router/userRouter');
+const exhibitionRouter = require('./router/ExibitionRoter');
+
 const cors = require('cors');
 
 app.use(cors({

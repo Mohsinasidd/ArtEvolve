@@ -1,14 +1,17 @@
-const {Schema, model} = require('../connection');
+const { Schema, model, Types } = require("../connection");
+// const bcrypt = require("bcrypt");
+const SALT = 10;
 
-const myschema = new Schema({
-    title : String,
-    category : String,
-    price : Number,
-    file : String,
-    artist : String,
-    describtion : String,
-    createdAt : Date
-
+const artSchema = new Schema({
+  title: { type: String, required: true },
+  discription: { type: String, required: true },
+  organizer: { type: Types.ObjectId, ref: 'user' },
+  artist: String,
+  image: String,
+  price: { type: String, required: true },
+  created_at: Date,
+  updated_at: Date,
 });
 
-module.exports = model('users', myschema );
+
+module.exports = model("artwork", artSchema);
