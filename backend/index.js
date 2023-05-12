@@ -3,7 +3,8 @@ const app = express();
 
 //importing routers
 const userRouter = require('./router/userRouter');
-const exhibitionRouter = require('./router/ExibitionRoter');
+const exhibitionRouter = require('./router/ExibitionRouter');
+const ArtRouter = require('./router/ArtRouter');
 
 const cors = require('cors');
 
@@ -16,6 +17,9 @@ app.use(express.json());
 //adding routers
 
 app.use('/user', userRouter);
+app.use('/art', ArtRouter);
+app.use('/exhibition', exhibitionRouter);
+
 
 const port = 5000;
 

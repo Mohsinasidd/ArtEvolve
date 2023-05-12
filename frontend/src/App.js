@@ -9,7 +9,6 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={ <Navigate to="/home" /> } />
           <Route path="home" element={ <Home /> } />
