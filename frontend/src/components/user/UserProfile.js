@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './UserProfile.css'
+// import './UserProfile.css'
 import { useFormik } from 'formik'
 
 const UserProfile = () => {
