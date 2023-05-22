@@ -5,7 +5,7 @@ import app_config from '../../config';
 // import { useFormik } from 'formik';
 // import { artSchema } from '../../validationSchema';
 // import Swal from 'sweetalert2';
-import './ManageArtwork.css'
+// import './ManageArtwork.css'
 import ArtworkForm from './ArtworkForm';
 import Typewriter from 'typewriter-effect';
 import { toast } from 'react-hot-toast';
@@ -17,7 +17,7 @@ const ManageArtwork = () => {
   // const [showForm, setShowForm] = useState(false);
 
   const fetchArtData = async () => {
-    const res = await fetch(app_config.apiurl + '/art/getbyuser/'+currentUser._id)
+    const res = await fetch(app_config.apiUrl + '/art/getbyuser/'+currentUser._id);
     const artData = await res.json()
     console.log(artData);
     setCurrentArt(artData.result)

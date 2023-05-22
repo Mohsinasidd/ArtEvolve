@@ -1,8 +1,12 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -14,21 +18,25 @@ const Login = () => {
 
       const res = await fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
-        body : JSON.stringify(values),
-        headers : {
-          'Content-Type' : 'application/json'
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
         }
       });
 
-      if(res.status === 200){ 
-          Swal.fire({
-            icon : "success",
-            title: "Success",
-            text: "Loged in Successfully"
-          })
-      }else if(res.status === 401){
+      if (res.status === 201) {
         Swal.fire({
-          icon : "error",
+          icon: "success",
+          title: "Success",
+          text: "Loged in Successfully"
+        })
+        const data = await res.json();
+        sessionStorage.setItem('user', JSON.stringify(data));
+        navigate('/user/artwork');
+
+      } else if (res.status === 401) {
+        Swal.fire({
+          icon: "error",
           title: "Error",
           text: "Invalid Credentials"
         })

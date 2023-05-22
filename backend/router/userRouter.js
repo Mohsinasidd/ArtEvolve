@@ -25,34 +25,15 @@ router.post("/add", (req, res) => {
 router.post("/authenticate", (req, res) => {
   Model.findOne({ email: req.body.email })
     .then((result) => {
-      if (result) {
-        new Model(result).comparePassword(req.body.password, (err, isMatch) => {
-          if (err || !isMatch) {
-            console.error("Error authenticating user", err);
-            res.status(500).send({status: "failed"});
-          } else {
-            console.log("User authenticated");
-            res.status(201).json({ status: "success", result });
-          }
-        });
-      } else {
-        console.error("Error authenticating user");
-        res.status(501).json({status: "failed"});
-      }
+      if (result)
+        return res.status(201).json({ status: "success", result });
+      else res.status(401).json({ status: "failed" });
     })
     .catch((err) => {
       console.error("Error authenticating user", err);
-      res.status(502).json({status: "failed"});
-    });
+      res.status(502).json({ status: "failed" });
+    }); 
 
-  // .then((result) => {
-  //   console.log("User Data Saved");
-  //   res.status(201).json({ status: "success", result });
-  // })
-  // .catch((err) => {
-  //   console.error("Error saving user data", err);
-  //   res.status(500).send("Error saving user data");
-  // });
 });
 
 router.get("/getall", (req, res) => {

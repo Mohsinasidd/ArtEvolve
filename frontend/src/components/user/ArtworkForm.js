@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './ArtworkForm.css'
+// import './ArtworkForm.css'
 import { useFormik } from 'formik';
 import Swal from 'sweetalert2';
 import app_config from '../../config';
-import { artSchema } from '../../validationSchema';
+// import { artSchema } from '../../validationSchema';
 
 const ArtworkForm = () => {
 
@@ -15,7 +15,7 @@ const ArtworkForm = () => {
         price: ""
     }
 
-    const url = app_config.apiurl;
+    const url = app_config.apiUrl;
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues,

@@ -1,38 +1,332 @@
-.App {
-  text-align: center;
+/* 
+body {
+  background-color: #2F3242;
+}
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
+}
+.message-box {
+  height: 200px;
+  width: 380px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: 50px;
+  color: #FFF;
+  font-family: Roboto;
+  font-weight: 300;
+}
+.message-box h1 {
+  font-size: 60px;
+  line-height: 46px;
+  margin-bottom: 40px;
+}
+.buttons-con .action-link-wrap {
+  margin-top: 40px;
+}
+.buttons-con .action-link-wrap a {
+  background: #68c950;
+  padding: 8px 25px;
+  border-radius: 4px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px
+}
+.buttons-con .action-link-wrap a:hover {
+  background: #c91b98;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+  animation: float 1s infinite ease-in-out alternate;
+}
+#Polygon-2 {
+  animation-delay: .2s; 
+}
+#Polygon-3 {
+  animation-delay: .4s; 
+}
+#Polygon-4 {
+  animation-delay: .6s; 
+}
+#Polygon-5 {
+  animation-delay: .8s; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes float {
+	100% {
+    transform: translateY(20px);
   }
 }
+@media (max-width: 450px) {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -190px;
+  }
+  .message-box {
+    top: 50%;
+    left: 50%;   
+    margin-top: -100px;
+    margin-left: -190px;
+    text-align: center;
+  }
+}
+body, html {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.site {
+  min-height: 100%;
+  display: flex;
+}
+
+.nav {
+  background: #1F1F24;
+  color: #B89775;
+  width: 15px;
+  overflow: hidden;
+  transition: 0.5s;
+  display: flex;
+}
+.nav.active {
+  width: 111px;
+}
+.nav.active ul {
+  opacity: 1;
+}
+.nav.active + .content .overlay {
+  opacity: 0.5;
+}
+
+ul {
+  opacity: 0;
+  transition: 0.5s;
+  width: 111px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+ul li {
+  width: 80px;
+  text-align: center;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(235, 237, 242, 0.47);
+}
+ul li:last-child {
+  border-bottom: 0;
+}
+ul a {
+   color: #fff; 
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+ul a:hover {
+  color: #B89775;
+}
+ul i.fa {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 0.2em;
+} */
+
+.content {
+  position: relative;
+  background: #B89775 url(https://i.imgur.com/Ls5KVai.jpg) 50% 50%;
+  background-size: cover;
+  flex: 1;
+  text-align: center;
+}
+.content h2 {
+  margin-top: 3em;
+  font-size: 1.7vw;
+  letter-spacing: 0.54;
+  margin-bottom: 1em;
+}
+.content h1 {
+  font-size: 4vw;
+  font-weight: bold;
+}
+.content h3 {
+  margin: 1em 0;
+  font-size: 1.6vw;
+  line-height: 1.5em;
+  letter-spacing: -0.4;
+}
+.content button {
+  padding: 12px 15px;
+  background: transparent;
+  border: 2px solid #1F1F24;
+  font-size: 1vw;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.content button:hover {
+  color: #B89775;
+  background: #1F1F24;
 }
 
-.App-link {
-  color: #61dafb;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1F1F24;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+html {
+  scroll-behavior: smooth;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.title {
+  font-size: 2em;
+  color: #8c0c60;
+  display: block;
+}
+
+.sub-title {
+  font-size: 0.8em;
+  color: gray;
+  display: block;
+}
+
+.btn1 {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #8c0c3c;
+  color: #8c0c3c;
+  border-radius: 3px;
+  outline: none;
+  transition: 0.5s;
+}
+
+.btn1:hover {
+  background: #8c0c3c;
+  color: #fff;
+}
+
+.btn2 {
+  padding: 10px 20px;
+  border-radius: 3px;
+  background: #1e1e1e;
+  border: 1px solid #1e1e1e;
+  color: #fff;
+  outline: none;
+  transition: 0.5s;
+}
+
+.btn2:hover {
+  background: transparent;
+  color: #1e1e1e;
+}
+
+.title:before {
+  content: " ";
+  font-family: "FontAwesome";
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section2,
+.section3 {
+  width: 90%;
+  margin: 5% 0%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section2 table,
+.section3 table {
+  width: 100%;
+}
+
+.section2 table td,
+.section3 table td {
+  width: 50%;
+}
+
+.section2 table td img,
+.section3 table td img {
+  width: 80%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 6px 16px -6px rgba(1, 1, 1, 0.5);
+}
+
+.section3 table td img {
+  float: right;
+}
+
+@media (max-width: 720px) {
+  .section2 table td,
+  .section3 table td {
+    width: 100%;
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  .section3 table td img {
+    float: none;
+    margin-top: 4%;
+  }
+  .section2 table td img,
+  .section3 table td img {
+    width: 100%;
+    height: 60%;
   }
 }
+
+@media (max-width: 300px) {
+  .section2,
+  .section3 {
+    font-size: 12px;
+  }
+  .section3 table td img {
+    float: none;
+    margin-top: 8%;
+  }
+  .btn1,
+  .btn2 {
+    padding: 5px 10px;
+  }
+}
+.footer {
+  position: fixed;
+  box-shadow: 0px 6px 16px -6px rgba(1, 1, 1, 0.5);
+  background: #1e1e1e;
+  padding: 10px 20px;
+  color: gray;
+  font-size: 13px;
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+}
+
