@@ -63,7 +63,7 @@ const ManageArtwork = () => {
               deleteSpeed: 110
             }}
           />
-          <p className='d-none d-md-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia quo quibusdam tempora adipisci, culpa laboriosam expedita dolore quae dolores consequuntur vitae facilis corrupti totam debitis recusandae unde quidem dicta?</p>
+          <p className='d-none d-md-block'> Place Art work</p>
           <button
             type="button"
             className="btn"
@@ -107,7 +107,7 @@ const ManageArtwork = () => {
           <table className="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col" >#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Artist</th>
                 <th scope="col">Description</th>

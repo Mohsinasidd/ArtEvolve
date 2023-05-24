@@ -11,8 +11,8 @@ const Navbar = () => {
           {/* Navbar brand */}
           <a className="navbar-brand me-2" href="https://mdbgo.com/">
             <img
-              src="/logo192.png"
-              height={40}
+              src="https://img.freepik.com/premium-vector/art-gallery-logo-design_92167-618.jpg?w=740"
+              height={80}
               alt="MDB Logo"
               loading="lazy"
               style={{ marginTop: "-1px" }}
@@ -39,6 +39,22 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/Aboutus">
+                  Aboutus
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/Contactus">
+                  Contactus
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/BrowseExibition">
+                  BrowseExibition
+                </NavLink>
+              </li>
+
               <li className="nav-item">
                 <NavLink className="nav-link" to="/main/signin">
                   Login

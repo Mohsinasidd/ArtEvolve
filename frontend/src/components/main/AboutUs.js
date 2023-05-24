@@ -10,26 +10,25 @@ const AboutUs = () => {
           <tr>
             <td>
               <img
-                src="https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+                src="https://bombayartsociety.org/wp-content/uploads/2021/01/Gallery1-c-1024x683.jpg"
                 alt="AboutUs"
               />
             </td>
             <td>
-              <span className="title">About Us</span>
+              <span className="title"> Welcome to ArtEvolve</span>
               <span className="sub-title">
-                Lorem ipsum dolor sit amet, consectetur adi
+              
               </span>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                Welcome to ArtEvolve!We are a team of passionate artists and designers who are dedicated to creating unique and inspiring 
+                works of art.Our mission is to bring creativity and beauty into the world through art.
+
+                
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                ArtEvolve was founded in 2015 by a group of artists who wanted to create a platform for artists to showcase their 
+                work and connect with other artists and art enthusiasts. Over the years ,we have grown into a community of over 10,000 artists 
+                from around the world.
               </p>
               <a href="#OurMission" className="btn1">
                 Our Misssion
@@ -49,27 +48,22 @@ const AboutUs = () => {
             <td>
               <span className="title">Our Mission</span>
               <span className="sub-title">
-                Lorem ipsum dolor sit amet, consectetur adi
+                
               </span>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
+                ArtEvolve's mission is to bring art to every individual and promote a sense of partnership and understanding through art.
+                through art.ArtEvolve aims to create a platform where every artists can showcase their art to the world and receive the
+                right guidance and resources to improve their art.Another objective of ArtEvolve's mission is to use art as a means
+                to promote a sense of partnership and understanding among people.
               </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              
               <a href="" className="btn2">
                 Know More
               </a>
             </td>
             <td>
               <img
-                src="https://images.unsplash.com/photo-1499083097717-a156f85f0516?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+                src="https://bombayartsociety.org/wp-content/uploads/2021/01/Gallery2-b-1024x683.jpg"
                 alt="AboutUs"
               />
             </td>
