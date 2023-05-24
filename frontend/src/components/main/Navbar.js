@@ -9,15 +9,15 @@ const Navbar = () => {
         {/* Container wrapper */}
         <div className="container">
           {/* Navbar brand */}
-          <a className="navbar-brand me-2" href="https://mdbgo.com/">
+          <NavLink className="navbar-brand me-2" to="/">
             <img
-              src="https://img.freepik.com/premium-vector/art-gallery-logo-design_92167-618.jpg?w=740"
-              height={80}
+              src="/logo.png"
+              height={50}
               alt="MDB Logo"
               loading="lazy"
               style={{ marginTop: "-1px" }}
             />
-          </a>
+          </NavLink>
           {/* Toggle button */}
           <button
             className="navbar-toggler"

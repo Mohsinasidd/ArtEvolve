@@ -5,7 +5,7 @@ import app_config from '../../config';
 // import { useFormik } from 'formik';
 // import { artSchema } from '../../validationSchema';
 // import Swal from 'sweetalert2';
-// import './ManageArtwork.css'
+import './ManageArtwork.css'
 import ArtworkForm from './ArtworkForm';
 import Typewriter from 'typewriter-effect';
 import { toast } from 'react-hot-toast';
