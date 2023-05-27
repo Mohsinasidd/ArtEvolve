@@ -1,141 +1,146 @@
 import React, { useEffect, useState } from 'react'
-import './ArtworkForm.css'
+import { Link, NavLink } from 'react-router-dom'
 import { useFormik } from 'formik';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
+import Typewriter from 'typewriter-effect';
 import app_config from '../../config';
-import { artSchema } from '../../validationSchema';
+import AddExhibition from './AddExhibition';
+
 
 const ManageExhibitions = () => {
 
-    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-    const [currentArts, setCurrentArts] = useState(JSON.parse(sessionStorage.getItem('art')));
-    const [artworkList, setArtworkList] = useState([]);
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [currentExhibition, setCurrentExhibition] = useState([])
+  const [artworkList, setArtworkList] = useState([]);
 
-    const [selArtworks, setSelArtworks] = useState([]);
+  const fetchExhibitionData = async () => {
+    const res = await fetch(app_config.apiurl + '/exhibition/getbyuser/' + currentUser._id);
+    // console.log(res.status);
+    const exhiData = await res.json()
+    console.log(exhiData);
+    setCurrentExhibition(exhiData.result)
+  };
 
-    const initialValues = {
-        title: '',
-        artworks: [],
-        theme: 'white',
-        price: 0,
-        organizer: currentUser._id,
-        start_at: '',
-        end_at: ''
-    }
+  const getUserArtworks = async () => {
+    const res = await fetch(app_config.apiurl + '/art/getbyuser/' + currentUser._id)
+    const data = await res.json();
+    console.log(data);
+    setArtworkList(data.result);
+  }
 
-    const url = app_config.apiurl;
-
-    const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
-        initialValues,
-        // validationSchema: artSchema,
-        onSubmit: async (values, { resetForm }) => {
-            values.artworks = selArtworks;
-            console.log(values);
-
-            const res = await fetch(url + '/exhibition/add', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(values)
-
-            });
-            console.log(res.status);
-            if (res.status === 201) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Art added successfully'
-                })
-                resetForm();
-            }
-            else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!'
-                })
-            }
-        }
-    })
-
-    const fetchArtData = async () => {
-        const res = await fetch(app_config.apiurl + '/art/getbyuser/' + currentUser._id)
-        const artData = await res.json()
-        console.log(artData);
-        setArtworkList(artData.result);
-
-    };
-
-    useEffect(() => {
-        fetchArtData();
-    }, []);
-
-    const handleSelArtwork = (art_id, op) => {
-        // console.log(selArtworks);
-        if (op === 'add') {
-            if (!selArtworks.find(id => id === art_id)) setSelArtworks([...selArtworks, art_id]);
-        } else if (op === 'remove') {
-            setSelArtworks(selArtworks.filter(id => id !== art_id));
-        }
-    }
+  useEffect(() => {
+    fetchExhibitionData();
+    getUserArtworks();
+  }, []);
 
 
-    return (
-        <>
-            <section className="form-content">
-                <div className="artformBx">
-                    <form className='art-form row' onSubmit={handleSubmit}>
-                        <div className="your-arts">
-                            <div className="arts">
-                                {
-                                    artworkList.map(art => (
-                                        <label>
-                                            <input type="checkbox" checked={selArtworks.includes(art._id)} onChange={e => {
-                                                if (e.target.checked) handleSelArtwork(art._id, 'add');
-                                                else handleSelArtwork(art._id, 'remove');
-                                            }} />
-                                            <span>{art.title}</span>
-                                        </label>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <hr />
-                        <div className="inputBx ">
-                            <span>Exhibition title</span>
-                            <input type="text" name='title' id='title' autoComplete='off' value={values.title} onChange={handleChange} onBlur={handleBlur} />
-                        </div>
-                        <div className="inputBx col-6">
-                            <span>Ticket Price</span>
-                            <input type="number" name='price' id='price' autoComplete='off' value={values.price} onChange={handleChange} onBlur={handleBlur} />
-                        </div>
-                        <div className="inputBx col-6">
-                            <span>Themes</span>
-                            <select name="theme" id="theme" onChange={handleChange} value={values.theme} onBlur={handleBlur}>
-                                <option value='white'>White</option>
-                                <option value='olive'>Olive</option>
-                                <option value='grey'>Grey</option>
-                                <option value='lightblue'>LightBlue</option>
-                                <option value='golden'>Golden</option>
-                            </select>
-                        </div>
+  const deleteArt = async (id) => {
+    alert('Delete ' + currentUser._id);
+  }
+  const updateArt = async (id) => {
+    alert('Update ' + currentUser._id);
+  }
 
-                        <div className="inputBx col-6">
-                            <span>Start date</span>
-                            <input type="date" name='start_at' id='start_at' autoComplete='off' value={values.start_at} onChange={handleChange} onBlur={handleBlur} />
-                        </div>
-                        <div className="inputBx col-6">
-                            <span>End date</span>
-                            <input type="date" name='end_at' id='end_at' autoComplete='off' value={values.end_at} onChange={handleChange} onBlur={handleBlur} />
-                        </div>
-                        <hr />
-                        <div className="inputBx">
-                            <input type="submit" value='Save' />
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </>
-    )
+  return (
+    <div>
+      <div className="art-header-block">
+        <div className="artHead">
+          <Typewriter
+            options={{
+              wrapperClassName: 'animateContHead',
+              cursorClassName: 'cursorAnimate',
+              skipAddStyles: false,
+              strings: [`Manage your artworks`, 'Update your skills'],
+              autoStart: true,
+              loop: true,
+              delay: 150,
+              deleteSpeed: 110
+            }}
+          />
+          <p className='d-none d-md-block'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quia quo quibusdam tempora adipisci, culpa laboriosam expedita dolore quae dolores consequuntur vitae facilis corrupti totam debitis recusandae unde quidem dicta?</p>
+          <button
+            type="button"
+            className="btn"
+            data-mdb-toggle="modal"
+            data-mdb-target="#updateArtwork"
+          >
+            Manage Exhibition <i class="fas fa-arrow-right fa-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div className='container-fluid contentBox'>
+        <div
+          className="modal fade"
+          id="updateArtwork"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  Manage Exhibition
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-mdb-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <AddExhibition />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="content-table">
+          <h2>Your Exhibitions </h2>
+          <h6>Organizer code: #{currentUser._id}</h6>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Exhibition Title</th>
+                <th scope="col">Theme </th>
+                <th scope="col">Timing</th>
+                <th scope="col">Artworks</th>
+                <th scope="col">Ticket Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentExhibition && currentExhibition.map((exhib) => {
+                return (
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{exhib.title}</td>
+                    <td>{exhib.theme}</td>
+                    <td>{exhib.start_at.slice(0, 10)} to {exhib.end_at.slice(0, 10)}</td>
+                    <td>
+                      <select name="arts" id="arts">
+                        <option value={exhib.artworks}>Historia</option>
+                        <option value={exhib.artworks}>Pictoria</option>
+                        <option value={exhib.artworks}>Historia</option>
+                      </select>
+                    </td>
+                    <td>{exhib.price}</td>
+                    <td>
+                      <button className='btn btn-warning' onClick={updateArt}><i className="fas fa-edit fa-lg"></i></button> &nbsp;
+                      <button className='btn btn-danger' onClick={() => { }}><i className="fas fa-trash fa-lg"></i></button>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default ManageExhibitions

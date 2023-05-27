@@ -6,4 +6,4 @@ const BrowseExhibitions = () => {
   )
 }
 
-export default BrowseExhibitions
+export default BrowseExhibitions;

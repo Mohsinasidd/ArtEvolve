@@ -7,21 +7,16 @@ import UserAuth from "./auth/UserAuth";
 import User from "./components/user";
 import UserProfile from "./components/user/UserProfile";
 import NotFound from "./components/NotFound";
-// import AdminAuth from "./auth/AdminAuth";
 import UserProvider from "./context/UserProvider";
 import { useState } from "react";
-// import About from "./components/main/About";
-// import Contact from "./components/main/Contact";
-// import Exhibition from "./components/main/Exhibition";
-import BrowseExhibitions from "./components/main/BroweExhibitions";
-import BrowseExhibition from "./components/user/BrowseExhibition";
-import ManageExhibition from "./components/user/ManageExhibition";
 import Login from "./components/main/Login";
 import Signup from "./components/main/Signup";
 import AboutUs from "./components/main/AboutUs";
 import Contact from "./components/main/ContactUs";
 import ManageArtwork from "./components/user/ManageArtworks";
-// import Gallery from "./components/main/Gallery";
+import BrowseExhibition from "./components/main/BrowseExhibition";
+import ManageExhibitions from "./components/user/ManageExhibitions";
+import AddExhibition from "./components/user/AddExhibition";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -45,9 +40,9 @@ function App() {
             {/* <Route element={<Gallery />} path="gallery" /> */}
             {/* <Route element={<About />} path="aboutus" /> */}
             <Route element={<Contact />} path="contact" />
-            <Route element={<BrowseExhibitions />} path="browseExhibition" />
             <Route element={<Login />} path="signin" />
             <Route element={<Signup />} path="signup" />
+          <Route path="browseexhibition" element={<BrowseExhibition />} />
           </Route>
 
           <Route
@@ -59,10 +54,8 @@ function App() {
             }
             path="user"
           >
-            <Route element={<Home />} path="home" />
-            {/* <Route element={<Contact />} path="contact" /> */}
-            <Route element={<BrowseExhibition />} path="browseExhibition" />
-            <Route path="exhibition" element={<ManageExhibition />} />
+            <Route path="exhibition" element={<ManageExhibitions />} />
+            <Route path="addexhibition" element={<AddExhibition />} />
             <Route path="profile" element={<UserProfile />} />
             <Route path="artwork" element={<ManageArtwork />} />
           </Route>
