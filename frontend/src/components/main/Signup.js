@@ -60,7 +60,13 @@ const Signup = () => {
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+    <section className="vh-100"    style={{
+      backgroundImage:
+        'url("https://cdn.pixabay.com/photo/2017/07/03/20/17/colorful-2468874_960_720.jpg")',
+      backgroundSize: "cover",
+      backgroundPosition: "center center"
+    }}
+  >
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-lg-12 col-xl-11">
@@ -168,7 +174,7 @@ const Signup = () => {
                   </div>
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                      src="https://media.istockphoto.com/id/1218961153/photo/art-museum.jpg?s=612x612&w=0&k=20&c=9fK54fu1mjzFjDOSqg_jfrMy4Hkp8vsmImB7rLrbhJs= "
                       className="img-fluid"
                       alt="Sample image"
                     />

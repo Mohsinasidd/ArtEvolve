@@ -23,26 +23,13 @@ router.post("/add", (req, res) => {
 });
 
 router.post("/authenticate", (req, res) => {
-  Model.findOne({ email: req.body.email })
+  Model.findOne(req.body)
     .then((result) => {
-      if (result) {
-        new Model(result).comparePassword(req.body.password, (err, isMatch) => {
-          if (err || !isMatch) {
-            console.error("Error authenticating user", err);
-            res.status(500).send({status: "failed"});
-          } else {
-            console.log("User authenticated");
-            res.status(201).json({ status: "success", result });
-          }
-        });
-      } else {
-        console.error("Error authenticating user");
-        res.status(501).json({status: "failed"});
-      }
+      res.status(201).json(result);
     })
     .catch((err) => {
       console.error("Error authenticating user", err);
-      res.status(502).json({status: "failed"});
+      res.status(401).json({ status: "failed" });
     });
 
   // .then((result) => {

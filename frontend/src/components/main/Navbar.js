@@ -5,7 +5,9 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <section class="header">
+        
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" >
         {/* Container wrapper */}
         <div className="container">
           {/* Navbar brand */}
@@ -88,6 +90,8 @@ const Navbar = () => {
         {/* Container wrapper */}
       </nav>
       {/* Navbar */}
+      
+      </section>
     </>
 
   )
