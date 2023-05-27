@@ -6,9 +6,10 @@ const Home = () => {
     <main className="mt-5">
       <div className="container">
         {/*Section: Content*/}
-        <section>
+        <section >
+      
           <div className="row">
-            <div className="col-md-6 gx-5 mb-4">
+            <div className="col-md-6 gx-5 mb-4"> 
               <div
                 className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
                 data-mdb-ripple-color="light"
@@ -150,7 +151,7 @@ const Home = () => {
         {/*Section: Content*/}
         <hr className="my-5" />
         {/*Section: Content*/}
-        <section className="mb-5">
+        <section className="mb-5" >
           <h4 className="mb-5 text-center">
             <strong>Newsletter</strong>
           </h4>
@@ -265,7 +266,7 @@ const Home = () => {
       <div className="py-4 text-center">
         <a
           role="button"
-          className="btn btn-primary btn-lg m-2"
+          className="btn btn-danger btn-lg m-2"
           href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
           rel="nofollow"
           target="_blank"
@@ -274,7 +275,7 @@ const Home = () => {
         </a>
         <a
           role="button"
-          className="btn btn-primary btn-lg m-2"
+          className="btn btn-success btn-lg m-2"
           href="https://mdbootstrap.com/docs/standard/"
           target="_blank"
         >
@@ -282,11 +283,11 @@ const Home = () => {
         </a>
       </div>
       <hr className="m-0" />
-      <div className="text-center py-4 align-items-center">
-        <p>Follow MDB on social media</p>
+      <div className="text-center py-4 align-items-center"  style={{ backgroundColor: "black" }}>
+        <p>Follow  on social media</p>
         <a
           href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
-          className="btn btn-primary m-1"
+          className="btn btn-danger m-1"
           role="button"
           rel="nofollow"
           target="_blank"
@@ -295,7 +296,7 @@ const Home = () => {
         </a>
         <a
           href="https://www.facebook.com/mdbootstrap"
-          className="btn btn-primary m-1"
+          className="btn btn-danger m-1"
           role="button"
           rel="nofollow"
           target="_blank"
@@ -304,7 +305,7 @@ const Home = () => {
         </a>
         <a
           href="https://twitter.com/MDBootstrap"
-          className="btn btn-primary m-1"
+          className="btn btn-danger m-1"
           role="button"
           rel="nofollow"
           target="_blank"
@@ -313,7 +314,7 @@ const Home = () => {
         </a>
         <a
           href="https://github.com/mdbootstrap/mdb-ui-kit"
-          className="btn btn-primary m-1"
+          className="btn btn-danger m-1"
           role="button"
           rel="nofollow"
           target="_blank"
@@ -324,12 +325,10 @@ const Home = () => {
       {/* Copyright */}
       <div
         className="text-center p-3"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+        style={{ backgroundColor: "red" }}
       >
-        © 2020 Copyright:
-        <a className="text-dark" href="https://mdbootstrap.com/">
-          MDBootstrap.com
-        </a>
+      
+        
       </div>
       {/* Copyright */}
     </footer>

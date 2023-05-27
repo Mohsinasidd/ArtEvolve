@@ -46,7 +46,12 @@ const Login = () => {
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#508bfc" }}>
+    <section className="vh-100"  style={{
+      backgroundImage:
+        'url("https://cdn.pixabay.com/photo/2015/08/28/11/27/space-911785_960_720.jpg")',
+      backgroundSize: "cover",
+      backgroundPosition: "center center"
+    }}>
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
