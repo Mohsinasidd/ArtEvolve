@@ -23,7 +23,7 @@ const AddExhibition = () => {
         end_at: ''
     }
 
-    const url = app_config.apiurl;
+    const url = app_config.apiUrl;
 
     const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues,

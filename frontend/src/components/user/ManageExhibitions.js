@@ -14,8 +14,8 @@ const ManageExhibitions = () => {
   const [artworkList, setArtworkList] = useState([]);
 
   const fetchExhibitionData = async () => {
-    const res = await fetch(app_config.apiurl + '/exhibition/getbyuser/' + currentUser._id);
-    // console.log(res.status);
+    const res = await fetch(app_config.apiUrl + '/exhibition/getbyuser/' + currentUser._id);
+    console.log(res.status);
     const exhiData = await res.json()
     console.log(exhiData);
     setCurrentExhibition(exhiData.result)

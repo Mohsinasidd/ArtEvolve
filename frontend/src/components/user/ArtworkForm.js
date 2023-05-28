@@ -19,7 +19,7 @@ const ArtworkForm = ({refreshData}) => {
         price: 0
     }
 
-    const url = app_config.apiurl;
+    const url = app_config.apiUrl;
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues,

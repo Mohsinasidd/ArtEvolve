@@ -8,7 +8,7 @@ const exhibitionSchema = new Schema({
   // description: { type: String, required: true, unique: true },
   artworks: [{ type: Types.ObjectId, ref: 'artwork' }],
   price: { type: Number, required: true },
-  organizer: { type: Types.ObjectId, ref: 'user' },
+  organizer: { type: Types.ObjectId, ref: 'users' },
   start_at: Date,
   end_at: Date,   
 });

@@ -5,7 +5,7 @@ const SALT = 10;
 const artSchema = new Schema({
   title: { type: String, required: true },
   discription: { type: String, required: true },
-  organizer: { type: Types.ObjectId, ref: 'user' },
+  organizer: { type: Types.ObjectId, ref: 'users' },
   artist: String,
   image: String,
   price: { type: String, required: true },

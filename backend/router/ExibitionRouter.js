@@ -82,6 +82,7 @@ router.get("/getbyid/:id", (req, res) => {
 router.get("/getbyuser/:id", (req, res) => {
   Model.find({organizer : req.params.id}).populate('artworks')
     .then((result) => {
+      // console.log(result);
       console.log("User Data Retrieved");
       res.status(200).json({ status: "success", result });
     })
