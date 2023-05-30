@@ -39,9 +39,11 @@ function App() {
             <Route element={<AboutUs />} path="aboutus" />
             {/* <Route element={<Gallery />} path="gallery" /> */}
             {/* <Route element={<About />} path="aboutus" /> */}
-            <Route element={<Contact />} path="contact" />
+            <Route element={<Contact />} path="Contactus" />
             <Route element={<Login />} path="signin" />
             <Route element={<Signup />} path="signup" />
+            <Route element={<Signup />} path="AdminProfile" />
+
           <Route path="browseexhibition" element={<BrowseExhibition />} />
           </Route>
 

@@ -68,7 +68,7 @@ const BrowseExhibition = () => {
             </div>
           </div>
         </section>
-      </div>
+      </div> 
     </div>
   )
 }

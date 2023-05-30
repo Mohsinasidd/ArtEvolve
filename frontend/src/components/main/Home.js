@@ -81,7 +81,7 @@ const Home = () => {
                   <p className="card-text">
                     Impress your potential buyers with the irreplaceable experience of art in VR
                   </p>
-                  <a href="" className="btn btn-primary">
+                  <a href="" className="btn btn-danger">
                     Learn more
                   </a>
                 </div>
@@ -110,8 +110,8 @@ const Home = () => {
                   <p className="card-text">
                     Expand your gallery space and showcase more works of art
                   </p>
-                  <a href="#!" className="btn btn-primary">
-                    Button
+                  <a href="#!" className="btn btn-danger">
+                    learn more
                   </a>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Home = () => {
                   <p className="card-text">
                     Create a replica of your museum and broaden your exhibition space in VR
                   </p>
-                  <a href="#!" className="btn btn-primary">
+                  <a href="#!" className="btn btn-danger">
                     Learn more
                   </a>
                 </div>

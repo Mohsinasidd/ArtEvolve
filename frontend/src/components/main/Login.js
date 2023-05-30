@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <section className="vh-100"  style={{
       backgroundImage:
-        'url("https://cdn.pixabay.com/photo/2015/08/28/11/27/space-911785_960_720.jpg")',
+        'url("https://media.istockphoto.com/id/626841510/photo/watercolor-and-oil-paints-brushes-pencils-pastel-crayon-on-table.jpg?s=612x612&w=0&k=20&c=KCuyj8N6w5lpevhK_ILkmrmhByylBmW0dXC_PtJhwWI=")',
       backgroundSize: "cover",
       backgroundPosition: "center center"
     }}>
@@ -100,14 +100,14 @@ const Login = () => {
                     </label>
                   </div>
                   <button
-                    className="btn btn-primary btn-lg btn-block"
+                    className="btn btn-danger btn-lg btn-block"
                     type="submit"
                   >
                     Login
                   </button>
                   <hr className="my-4" />
                   <button
-                    className="btn btn-lg btn-block btn-primary"
+                    className="btn btn-lg btn-block btn-danger"
                     style={{ backgroundColor: "#dd4b39" }}
                     type="submit"
                   >
