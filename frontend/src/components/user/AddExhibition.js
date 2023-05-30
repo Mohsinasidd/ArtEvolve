@@ -58,7 +58,8 @@ const AddExhibition = () => {
     })
 
     const fetchArtData = async () => {
-        const res = await fetch(app_config.apiurl + '/art/getbyuser/' + currentUser._id)
+        const res = await fetch(app_config.apiUrl + '/art/getbyuser/' + currentUser._id)
+        console.log(res.status);
         const artData = await res.json()
         console.log(artData);
         setArtworkList(artData.result);

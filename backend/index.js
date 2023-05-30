@@ -10,7 +10,7 @@ const utilRouter = require('./router/utils');
 const cors = require('cors');
 
 app.use(cors({
-    origin : ['http://localhost:3000']
+    origin : '*'
 }));
 // read json data
 app.use(express.json());
@@ -22,6 +22,7 @@ app.use('/art', ArtRouter);
 app.use('/exhibition', exhibitionRouter);
 app.use('/util', utilRouter);
 
+app.use(express.static('./static/uploads'));
 
 const port = 5000;
 
