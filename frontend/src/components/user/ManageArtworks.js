@@ -30,12 +30,13 @@ const ManageArtwork = () => {
 
   const deleteArt = async (id) => {
     // alert('Delete ' + id);
-    const res = await fetch(app_config.apiurl + '/art/detete' + id, { method: 'DELETE' })
+    console.log(id);
+    const res = await fetch(app_config.apiUrl + '/art/delete/' + id, { method: 'DELETE' })
     console.log(res.status);
 
-    fetchArtData();
-
+    
     if (res.status === 200) {
+      fetchArtData();
       toast.success('Artwork deleted')
     }
   }

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = 5000;
 
 //importing routers
 const userRouter = require('./router/userRouter');
@@ -23,7 +24,7 @@ app.use('/exhibition', exhibitionRouter);
 app.use('/util', utilRouter);
 
 
-const port = 5000;
+
 
 app.get('/', (req, res) => {
     res.send('Working Perfectly');
