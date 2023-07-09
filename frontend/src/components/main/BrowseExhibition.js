@@ -1,13 +1,42 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import './BrowserExhibition.css'
 import { Link } from 'react-router-dom'
 
 const BrowseExhibition = () => {
 
-  const [arts, setArts] = useState(JSON.parse(sessionStorage.getItem('art')));
+  const [exhibitionList, setExhibitionList] = useState(JSON.parse(sessionStorage.getItem('user')));
 
-  
+  const getExhibitionData = async () => {
+    const res = await fetch('http://localhost:5000/exhibition/getall');
+
+    const data = await res.json();
+
+    console.log(data);
+    setExhibitionList(data.result);
+  }
+
+  useEffect(() => {
+    getExhibitionData();
+  }, [])
+
+  const displayExhibition = () => {
+    return exhibitionList.map(obj => (
+      <div className="col-md-4 mt-2">
+        <div className='card'>
+
+          <img className='card-img-top' src="https://i.redd.it/k9oi1kaibwl41.jpg" alt="img" />
+
+          <div className="card-body">
+            <h2>{obj.title}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus eum incidunt. Beatae accusamus quod nam nihil quidem? Laboriosam suscipit similique corrupti vel mollitia assumenda laudantium dicta quae dolore corporis?.</p>
+            <span>₹{obj.price}</span>
+            <Link className='btn-tour' to='!#'>Take a tour <i class="fas fa-arrow-right"></i></Link>
+          </div>
+        </div>
+      </div>
+    ))
+  };
 
   return (
     <div>
@@ -33,42 +62,10 @@ const BrowseExhibition = () => {
         <h1>Access the tours</h1>
       </div>
       <div className="container-fluid card-content row mt-3 mb-5">
-        <section className="card-field m-auto">
-          <div className="card-box col-12 col-sm-12 mt-2">
-            <div className="imgBx">
-              <img src="https://i.redd.it/k9oi1kaibwl41.jpg" alt="img" />
-            </div>
-            <div className="content">
-              <h2>Title one</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus eum incidunt. Beatae accusamus quod nam nihil quidem? Laboriosam suscipit similique corrupti vel mollitia assumenda laudantium dicta quae dolore corporis?.</p>
-              <span>₹100</span>
-              <Link className='btn-tour' to='!#'>Take a tour <i class="fas fa-arrow-right"></i></Link>
-            </div>
-          </div>
-          <div className="card-box col-12 col-sm-12 mt-2">
-            <div className="imgBx">
-              <img src="https://tse4.mm.bing.net/th?id=OIP.LtVWf3aOStPZb0HOWy9d4wHaJ4&pid=Api&P=0" alt="img" />
-            </div>
-            <div className="content">
-              <h2>Title two</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus eum incidunt. Beatae accusamus quod nam nihil quidem? Laboriosam suscipit similique corrupti vel mollitia assumenda laudantium dicta quae dolore corporis?.</p>
-              <span>₹150/-</span>
-              <Link className='btn-tour' to='!#'>Take a tour <i class="fas fa-arrow-right"></i></Link>
-            </div>
-          </div>
-          <div className="card-box col-12 col-sm-12 mt-2">
-            <div className="imgBx">
-              <img src="https://tse2.mm.bing.net/th?id=OIP.3j36aovvngNpnfwJ1BCt6AAAAA&pid=Api&P=0" alt="img" />
-            </div>
-            <div className="content">
-              <h2>Title three</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus eum incidunt. Beatae accusamus quod nam nihil quidem? Laboriosam suscipit similique corrupti vel mollitia assumenda laudantium dicta quae dolore corporis?.</p>
-              <span>₹190/-</span>
-              <Link className='btn-tour' to='!#'>Take a tour <i class="fas fa-arrow-right"></i></Link>
-            </div>
-          </div>
+        <section className="row">
+          {displayExhibition()}
         </section>
-      </div> 
+      </div>
     </div>
   )
 }
