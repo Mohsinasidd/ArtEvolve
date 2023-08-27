@@ -50,16 +50,17 @@ function convertImageToBlob(imageUrl, cb) {
   }
 
   const initArtworkData = (artList, cb) => {
-	console.log(artList);
+	// console.log(artList);
 	let apiUrl = 'http://localhost:5000';
 	Promise.all(artList.map(async ({title, image}) => ({title, image : await convertImageToBlob(apiUrl+'/'+image) }) )).then(data => {
-		console.log(data);
+		// console.log(data);
 		cb(data)
 	})
   }
   
 
-async function loadImage(regl, p, res, imagData) {
+async function loadImage(regl, p, res, imgData) {
+	// console.log(imgData);
 	if (aniso === false) {
 		aniso = regl.hasExtension('EXT_texture_filter_anisotropic') ? regl._gl.getParameter(
 			regl._gl.getExtension('EXT_texture_filter_anisotropic').MAX_TEXTURE_MAX_ANISOTROPY_EXT
@@ -107,13 +108,18 @@ module.exports = {
 					return;
 				}
 				paintingCache[p.image_id] = p;
-				getexhibitionDataById('6475d3beb3513c87b925b1de', (artData) => {
+				console.log(window.location.href);
+				const id = window.location.href.split().at(-1);
+				getexhibitionDataById('64eb2a9a9b735ad327d98eba', (artData) => {
 					// console.log(artData);
 					initArtworkData(artData.result.artworks, (imgData => (
-						loadImage(regl, p, res, imgData).then(([tex, textGen, aspect]) => {
-							cbOne({ ...p, tex, textGen, aspect });
-							if (--count === 0)
-								cbAll();
+						imgData.forEach((img) => {
+
+							loadImage(regl, p, res, img).then(([tex, textGen, aspect]) => {
+								cbOne({ ...p, tex, textGen, aspect });
+								if (--count === 0)
+									cbAll();
+							})
 						})
 					)));
 				})

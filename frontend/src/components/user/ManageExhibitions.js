@@ -41,9 +41,9 @@ const ManageExhibitions = () => {
     alert('Update ' + currentUser._id);
   }
 
-  const openNewPage = () => {
+  const openNewPage = (id) => {
     // window.open('/exhibition/' + currentUser._id, '_blank');
-    window.open('http://192.168.18.18:9966', '_blank');
+    window.open('http://localhost:9966/'+id, '_blank');
   }
 
   return (
@@ -135,7 +135,7 @@ const ManageExhibitions = () => {
                     <td>
                       <button className='btn btn-warning' onClick={updateArt}><i className="fas fa-edit fa-lg"></i></button> &nbsp;
                       <button className='btn btn-danger' onClick={() => { }}><i className="fas fa-trash fa-lg"></i></button> &nbsp;
-                      <button className='btn btn-danger' onClick={() => { openNewPage() }}><i class="fas fa-eye   fa-lg "></i></button>
+                      <button className='btn btn-danger' onClick={() => { openNewPage(exhib._id) }}><i class="fas fa-eye   fa-lg "></i></button>
                     </td>
                   </tr>
                 )
